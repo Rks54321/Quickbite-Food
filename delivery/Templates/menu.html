@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ restaurant.name }} - Menu</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'menu1.css' %}">
+</head>
+
+<body>
+
+    <h1>Menu for {{ restaurant.name }}</h1>
+
+    <h3>Cuisine: {{ restaurant.cuisine }}</h3>
+
+    <img src="{{ restaurant.picture }}" width="200">
+
+    <h2>Menu Items</h2>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Veg/Non-Veg</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in menu_items %}
+
+            <tr>
+
+                <td>
+                    <img src="{{ item.picture }}" width="100">
+                </td>
+
+                <td>{{ item.name }}</td>
+
+                <td>{{ item.description }}</td>
+
+                <td>{{ item.price }}</td>
+
+                <td>
+                    {% if item.is_veg %}
+                        Veg
+                    {% else %}
+                        Non-Veg
+                    {% endif %}
+                </td>
+
+                <td>
+
+                    <a href="{% url 'update_menu' item.id %}">
+                        Update Item
+                    </a>
+
+                    <hr>
+
+                    <form method="POST"
+                          action="{% url 'delete_menuItem' item.id %}">
+
+                        {% csrf_token %}
+
+                        <button type="submit">
+                            Delete Item
+                        </button>
+
+                    </form>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+                <td colspan="6">
+                    No menu items yet.
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <h2>Add Menu Item</h2>
+
+    <form method="POST"
+          action="{% url 'restaurant_menu' restaurant.id %}">
+
+        {% csrf_token %}
+
+        <label>Item Name:</label>
+
+        <input type="text"
+               name="name"
+               required>
+
+        <br><br>
+
+        <label>Description:</label>
+
+        <textarea name="description" required></textarea>
+
+        <br><br>
+
+        <label>Price:</label>
+
+        <input type="number"
+               name="price"
+               step="0.01"
+               required>
+
+        <br><br>
+
+        <label>Vegetarian:</label>
+
+        <input type="checkbox"
+               name="is_veg">
+
+        <br><br>
+
+        <label>Image URL:</label>
+
+        <input type="url"
+               name="picture">
+
+        <br><br>
+
+        <button type="submit">
+            Add Item
+        </button>
+
+    </form>
+
+</body>
+</html>

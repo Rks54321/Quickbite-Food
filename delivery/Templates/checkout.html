@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'checkout.css' %}">
+</head>
+<body>
+    <h1>Checkout</h1>
+    <h2>Welcome, {{ username }}</h2>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% else %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Total: ₹{{ total_price }}</h3>
+
+    <button id="rzp-button">Pay with Razorpay</button>
+
+    <form id="rzp-form" method="POST" action="{% url 'payment_verify' username=username %}" style="display:none;">
+        {% csrf_token %}
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+        <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+    </form>
+    {% endif %}
+
+    <script>
+
+var options = {
+
+    key: "{{ razorpay_key_id }}",
+
+    amount: "{{ amount_paisa }}",
+
+    currency: "INR",
+
+    name: "QuickBite",
+
+    description: "Food Order Payment",
+
+    order_id: "{{ order_id }}",
+
+    callback_url: "{% url 'payment_verify' username=username %}",
+
+    redirect: true,
+
+    handler: function (response) {
+        document.getElementById("razorpay_payment_id").value = response.razorpay_payment_id;
+        document.getElementById("razorpay_order_id").value = response.razorpay_order_id;
+        document.getElementById("razorpay_signature").value = response.razorpay_signature;
+        document.getElementById("rzp-form").submit();
+    },
+
+    modal: {
+
+        ondismiss: function () {
+
+            console.log("Checkout closed");
+        }
+    },
+
+    prefill: {
+
+        name: "{{ username }}",
+
+        email: "customer@example.com",
+
+        contact: "9876543210"
+    },
+
+    theme: {
+
+        color: "#3399cc"
+    }
+};
+
+var rzp1 = new Razorpay(options);
+
+document.getElementById('rzp-button').onclick = function(e){
+
+    rzp1.open();
+
+    e.preventDefault();
+};
+
+</script>
+</body>
+</html>

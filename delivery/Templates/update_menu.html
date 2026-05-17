@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Menu Item</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'update_menu.css' %}">
+</head>
+<body>
+    <h2>Update Menu Item</h2>
+    <form method='POST' action="{% url 'update_menu' item.id %}">
+        {% csrf_token %}
+        <label for="name"> Item Name:</label>
+        <input type="text" id="name" name="name" value="{{item.name}}" required><br><br>
+
+        <label for="description">Description:</label>
+        <textArea id="description" name="description" required>
+            {{item.description}}
+        </textArea><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="{{item.price}}" required><br><br>
+
+        <label for="is_veg">Vegetarian:</label>
+        <input type="checkbox" id="is_veg" name="is_veg" value="{{item.is_veg}}"><br><br>
+
+        <label for="picture">Image URL:</label>
+        <input type="url" id="picture" name="picture" value="{{item.picture}}"><br><br>
+
+        <button type="submit">Update Item</button>
+    </form>
+</body>
+</html>

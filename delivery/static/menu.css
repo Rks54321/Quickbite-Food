@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fdfbfb 0%,
+        #ebedee 100%
+    );
+
+    overflow-x:hidden;
+}
+
+/* MAIN TITLE */
+
+h1{
+
+    text-align:center;
+
+    font-size:64px;
+
+    color:#222;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+    animation:fadeDown 1s ease;
+}
+
+/* CUISINE */
+
+h3{
+
+    text-align:center;
+
+    font-size:32px;
+
+    color:#555;
+
+    margin-bottom:25px;
+
+    font-weight:500;
+}
+
+/* RESTAURANT IMAGE */
+
+body > img{
+
+    display:block;
+
+    margin:0 auto 40px auto;
+
+    width:420px;
+
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.15);
+
+    transition:0.35s;
+}
+
+body > img:hover{
+
+    transform:scale(1.03);
+}
+
+/* SECTION TITLE */
+
+h2{
+
+    font-size:42px;
+
+    color:#222;
+
+    margin:40px 0 25px;
+
+    text-align:center;
+
+    font-weight:700;
+}
+
+/* TABLE */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    margin-bottom:50px;
+
+    animation:fadeUp 1s ease;
+}
+
+/* TABLE HEADER */
+
+th{
+
+    padding:24px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    text-align:center;
+}
+
+/* TABLE DATA */
+
+td{
+
+    padding:24px;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:20px;
+
+    font-weight:500;
+
+    border-bottom:
+    1px solid #f1f1f1;
+}
+
+/* ROW HOVER */
+
+tr:hover{
+
+    background:#fff6f1;
+
+    transition:0.3s;
+}
+
+/* MENU ITEM IMAGE */
+
+td img{
+
+    width:220px;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 10px 22px rgba(0,0,0,0.12);
+}
+
+td img:hover{
+
+    transform:scale(1.05);
+}
+
+/* OPERATIONS */
+
+td:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    min-height:250px;
+}
+
+/* UPDATE BUTTON */
+
+a{
+
+    width:220px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #4facfe,
+        #00f2fe
+    );
+
+    box-shadow:
+    0 8px 18px rgba(79,172,254,0.30);
+
+    transition:0.35s;
+}
+
+a:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+}
+
+/* DELETE BUTTON */
+
+button{
+
+    width:220px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #ff416c,
+        #ff4b2b
+    );
+
+    box-shadow:
+    0 8px 18px rgba(255,65,108,0.30);
+
+    transition:0.35s;
+}
+
+button:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+}
+
+/* FORM */
+
+form{
+
+    width:700px;
+
+    margin:0 auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    animation:fadeUp 1s ease;
+}
+
+/* LABELS */
+
+label{
+
+    display:block;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#333;
+
+    margin-bottom:12px;
+}
+
+/* INPUTS */
+
+input,
+textarea{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    background:#f3f3f3;
+
+    font-size:18px;
+
+    color:#333;
+
+    transition:0.35s;
+}
+
+/* INPUT FOCUS */
+
+input:focus,
+textarea:focus{
+
+    background:white;
+
+    transform:scale(1.02);
+
+    box-shadow:
+    0 0 0 4px rgba(255,122,89,0.18);
+}
+
+/* TEXTAREA */
+
+textarea{
+
+    resize:none;
+
+    height:140px;
+}
+
+/* CHECKBOX */
+
+input[type="checkbox"]{
+
+    width:25px;
+
+    height:25px;
+}
+
+/* ADD BUTTON */
+
+form button{
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:linear-gradient(
+        135deg,
+        #43e97b,
+        #38f9d7
+    );
+
+    box-shadow:
+    0 8px 18px rgba(67,233,123,0.30);
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    body{
+        padding:15px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    h3{
+        font-size:22px;
+    }
+
+    body > img{
+        width:100%;
+        height:220px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    th,
+    td{
+        padding:16px;
+        font-size:15px;
+    }
+
+    td img{
+        width:140px;
+        height:100px;
+    }
+
+    form{
+        width:100%;
+        padding:25px;
+    }
+
+    label{
+        font-size:18px;
+    }
+
+    input,
+    textarea{
+        font-size:15px;
+    }
+
+    a,
+    button{
+        width:170px;
+        font-size:14px;
+        padding:12px;
+    }
+}

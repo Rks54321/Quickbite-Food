@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your cart</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+</head>
+<body>
+    <h1>Welcome {{ username }}</h1>
+    <h2>Your Cart</h2>
+
+    {% if items %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>
+                    <img src="{{ item.picture }}" alt="{{ item.name }}" width="100">
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Total Price: ₹{{ total_price }}</h3>
+
+    <form method="GET" action="{% url 'checkout' username %}">
+        <input type="submit" value="CHECK OUT">
+    </form>
+
+    <a href="{% url 'view_menu' items.0.restaurant.id username %}">Back to Menu</a>
+    {% else %}
+    <p>Your cart is empty!</p>
+    <a href="#">Back to Home</a>
+    {% endif %}
+    
+</body>
+</html>

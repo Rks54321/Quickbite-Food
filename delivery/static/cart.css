@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fdfbfb 0%,
+        #ebedee 100%
+    );
+
+    overflow-x:hidden;
+
+    color:#333;
+}
+
+/* WELCOME */
+
+h1{
+
+    text-align:center;
+
+    font-size:58px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    animation:fadeDown 1s ease;
+}
+
+/* CART TITLE */
+
+h2{
+
+    text-align:center;
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:40px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* TABLE */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    animation:fadeUp 1s ease;
+}
+
+/* TABLE HEADER */
+
+th{
+
+    padding:28px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    text-align:center;
+}
+
+/* TABLE DATA */
+
+td{
+
+    padding:28px;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:22px;
+
+    font-weight:500;
+
+    border-bottom:
+    1px solid #f1f1f1;
+}
+
+/* ROW HOVER */
+
+tr:hover{
+
+    background:#fff6f1;
+
+    transition:0.3s;
+}
+
+/* IMAGE */
+
+img{
+
+    width:220px;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 10px 22px rgba(0,0,0,0.14);
+}
+
+img:hover{
+
+    transform:scale(1.05);
+}
+
+/* TOTAL PRICE */
+
+h3{
+
+    text-align:right;
+
+    margin-top:30px;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:#222;
+}
+
+/* FORM */
+
+form{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+/* CHECKOUT BUTTON */
+
+input[type="submit"]{
+
+    width:320px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #43e97b,
+        #38f9d7
+    );
+
+    box-shadow:
+    0 10px 22px rgba(67,233,123,0.30);
+
+    transition:0.35s;
+}
+
+input[type="submit"]:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* BACK BUTTON */
+
+a{
+
+    display:block;
+
+    width:260px;
+
+    margin:35px auto 0 auto;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #4facfe,
+        #00f2fe
+    );
+
+    box-shadow:
+    0 8px 18px rgba(79,172,254,0.30);
+
+    transition:0.35s;
+}
+
+a:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* EMPTY CART */
+
+p{
+
+    text-align:center;
+
+    font-size:34px;
+
+    font-weight:600;
+
+    color:#555;
+
+    margin-top:40px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    body{
+        padding:15px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    h2{
+        font-size:34px;
+    }
+
+    h3{
+        text-align:center;
+        font-size:28px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    th,
+    td{
+        padding:16px;
+        font-size:16px;
+    }
+
+    img{
+        width:140px;
+        height:100px;
+    }
+
+    input[type="submit"],
+    a{
+        width:180px;
+        font-size:15px;
+        padding:12px;
+    }
+
+    p{
+        font-size:24px;
+    }
+}

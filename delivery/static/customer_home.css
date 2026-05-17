@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fdfbfb 0%,
+        #ebedee 100%
+    );
+
+    overflow-x:hidden;
+
+    color:#333;
+
+    font-size:28px;
+
+    font-weight:500;
+}
+
+/* STYLISH WELCOME TEXT */
+
+body::before{
+
+    content:"Welcome 👋";
+
+    display:block;
+
+    text-align:center;
+
+    font-size:62px;
+
+    font-weight:700;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    margin-bottom:15px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* MAIN TITLE */
+
+h1{
+
+    text-align:center;
+
+    font-size:68px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin:20px 0 45px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* TABLE */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    animation:fadeUp 1s ease;
+}
+
+/* TABLE HEADER */
+
+th{
+
+    padding:28px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    text-align:center;
+}
+
+/* TABLE DATA */
+
+td{
+
+    padding:28px;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:22px;
+
+    font-weight:500;
+
+    border-bottom:
+    1px solid #f1f1f1;
+}
+
+/* ROW HOVER */
+
+tr:hover{
+
+    background:#fff6f1;
+
+    transition:0.3s;
+}
+
+/* RESTAURANT IMAGE */
+
+img{
+
+    width:300px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 10px 22px rgba(0,0,0,0.14);
+}
+
+/* IMAGE HOVER */
+
+img:hover{
+
+    transform:scale(1.05);
+}
+
+/* VIEW MENU BUTTON */
+
+a{
+
+    display:inline-block;
+
+    width:220px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #43e97b,
+        #38f9d7
+    );
+
+    box-shadow:
+    0 8px 18px rgba(67,233,123,0.30);
+
+    transition:0.35s;
+}
+
+/* BUTTON HOVER */
+
+a:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* HIDE HR */
+
+hr{
+    display:none;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    body{
+        padding:15px;
+        font-size:18px;
+    }
+
+    body::before{
+        font-size:42px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    th,
+    td{
+        padding:16px;
+        font-size:16px;
+    }
+
+    img{
+        width:180px;
+        height:120px;
+    }
+
+    a{
+        width:160px;
+        font-size:14px;
+        padding:12px;
+    }
+}

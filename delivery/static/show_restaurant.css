@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fdfbfb 0%,
+        #ebedee 100%
+    );
+
+    overflow-x:hidden;
+}
+
+/* PAGE TITLE */
+
+body::before{
+
+    content:"Restaurant Management";
+
+    display:block;
+
+    text-align:center;
+
+    font-size:72px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:50px;
+
+    letter-spacing:1px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* TABLE */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    animation:fadeUp 1s ease;
+}
+
+/* TABLE HEADER */
+
+th{
+
+    padding:28px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    color:white;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    text-align:center;
+}
+
+/* TABLE DATA */
+
+td{
+
+    padding:28px;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:24px;
+
+    font-weight:500;
+
+    border-bottom:
+    1px solid #f1f1f1;
+}
+
+/* ROW HOVER */
+
+tr:hover{
+
+    background:#fff6f1;
+
+    transition:0.3s;
+}
+
+/* IMAGE */
+
+/* IMAGE */
+
+img{
+
+    width:340px;
+
+    height:240px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 10px 22px rgba(0,0,0,0.14);
+}
+
+/* IMAGE HOVER */
+
+img:hover{
+
+    transform:scale(1.05);
+}
+
+/* OPERATIONS COLUMN */
+
+td:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:16px;
+
+    min-height:300px;
+}
+
+/* BUTTONS */
+
+a{
+
+    width:240px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    transition:0.35s;
+
+    letter-spacing:0.5px;
+}
+
+/* UPDATE BUTTON */
+
+a:nth-child(1){
+
+    background:linear-gradient(
+        135deg,
+        #4facfe,
+        #00f2fe
+    );
+
+    box-shadow:
+    0 8px 18px rgba(79,172,254,0.30);
+}
+
+/* DELETE BUTTON */
+
+a:nth-child(3){
+
+    background:linear-gradient(
+        135deg,
+        #ff416c,
+        #ff4b2b
+    );
+
+    box-shadow:
+    0 8px 18px rgba(255,65,108,0.30);
+}
+
+/* SHOW MENU BUTTON */
+
+a:nth-child(5){
+
+    background:linear-gradient(
+        135deg,
+        #43e97b,
+        #38f9d7
+    );
+
+    box-shadow:
+    0 8px 18px rgba(67,233,123,0.30);
+}
+
+/* BUTTON HOVER */
+
+a:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    body{
+        padding:15px;
+    }
+
+    body::before{
+        font-size:42px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    th,
+    td{
+        padding:18px;
+        font-size:16px;
+    }
+
+    img{
+        width:170px;
+        height:120px;
+    }
+
+    td:last-child{
+        min-height:auto;
+    }
+
+    a{
+        width:170px;
+        font-size:14px;
+        padding:12px;
+    }
+}

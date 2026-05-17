@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
+    url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    overflow:hidden;
+}
+
+/* FORM */
+
+form{
+
+    width:500px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
+
+    animation:fadeUp 1s ease;
+}
+
+/* LABELS */
+
+label{
+
+    display:block;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    margin-bottom:10px;
+}
+
+/* INPUTS */
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.78);
+
+    color:#222;
+
+    font-size:16px;
+
+    transition:0.35s;
+}
+
+/* INPUT FOCUS */
+
+input:focus{
+
+    transform:scale(1.03);
+
+    background:white;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.25);
+}
+
+/* BUTTON */
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff3d00
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.35s;
+
+    box-shadow:
+    0 10px 25px rgba(255,123,0,0.35);
+}
+
+/* BUTTON HOVER */
+
+button:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
+    background:linear-gradient(
+        135deg,
+        #ff3d00,
+        #ff9500
+    );
+
+    box-shadow:
+    0 14px 30px rgba(255,123,0,0.5);
+}
+
+/* BUTTON CLICK */
+
+button:active{
+
+    transform:scale(0.98);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    form{
+
+        width:95%;
+
+        padding:30px;
+    }
+}

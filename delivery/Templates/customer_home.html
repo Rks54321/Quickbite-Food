@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'customer_home.css' %}">
+</head>
+<body>
+    Welcome {{username}}
+    <h1>My Favourite Restaurants</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Cuisines</th>
+                <th>Rating</th>
+                <th>Explore</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for restaurant in restaurantList %}
+            <tr>
+                <td>
+                    <img src="{{ restaurant.picture }}" alt="Picture of {{ restaurant.name }}" width = 100>
+                </td>
+                <td>{{ restaurant.name }}</td>
+                <td>{{ restaurant.cuisine }}</td>
+                <td>{{ restaurant.rating }}</td>
+                <td>
+                    <a href="{% url 'view_menu' restaurant.id username %}">View Menu</a>
+                    <hr>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+</html>
