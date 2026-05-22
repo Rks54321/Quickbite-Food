@@ -59,9 +59,7 @@ var options = {
 
     order_id: "{{ order_id }}",
 
-    callback_url: "{% url 'payment_verify' username=username %}",
-
-    redirect: true,
+    
 
     handler: function (response) {
         document.getElementById("razorpay_payment_id").value = response.razorpay_payment_id;

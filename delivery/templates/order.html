@@ -3,24 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order summary</title>
+    <title>Order Summary</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'order.css' %}">
 </head>
 <body>
-    <h1>Thank you for your order, {{ username }}</h1>
 
-    {% if payment_success %}
-    <h2 style="color: green;">Payment successful</h2>
-    {% endif %}
+    <div class="container">
 
-    <h2>Delivery Address</h2>
-    <p>{{ customer.address }}</p>
+        <h1>
+            Thank you for your order,
+            <span>{{ username }}</span>
+        </h1>
 
-    <p>Your order will be delivered to this location shortly. Thank you for choosing QuickBite!</p>
+        {% if payment_success %}
+        <div class="success-box">
+            Payment Successful
+        </div>
+        {% endif %}
 
-    {% if cart_items %}
-    <a href="{% url 'customer_menu' cart_items.0.restaurant.id username %}">Back to Restaurants</a>
-    {% else %}
-    <a href="/">Back to Home</a>
-    {% endif %}
+        <div class="address-box">
+
+            <h2>Delivery Address</h2>
+
+            <p class="address">
+                {{ customer.address }}
+            </p>
+
+        </div>
+
+        <p class="message">
+            Your order will be delivered to this location shortly.
+            Thank you for choosing QuickBite!
+        </p>
+
+        {% if cart_items %}
+        <a class="btn"
+           href="{% url 'customer_menu' cart_items.0.restaurant.id username %}">
+            Back to Restaurants
+        </a>
+        {% else %}
+        <a class="btn" href="{% url 'signin' %}?username={{ username }}">
+            Back to Home
+        </a>
+        {% endif %}
+
+    </div>
+
 </body>
 </html>
